@@ -1,0 +1,266 @@
+/* NAVIGATION BAR CSS */
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: whitesmoke;
+    margin: 2px;
+    padding: 2px;
+    font-family: 'Poppins', sans-serif;
+}
+.account-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 7px;
+    transform:translateY(-9px);
+  }
+
+  .account-icon {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .navi{
+    transform: translateX(-100px);
+}
+  .dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: none;
+    min-width: 150px;
+    z-index: 1000;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 12px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: #f1f1f1;
+  }
+  .account-icon:hover {
+    background-color: #f1f1f1;
+  }
+nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    background-color: whitesmoke;
+}
+nav .name{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem;
+    width: 20%;
+
+}
+nav ul li{
+    display: inline-block;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    list-style-type: none;
+}
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 90vh;
+    background-color: whitesmoke;
+    margin-top: 10%;
+    /* margin-right: 15%; */
+    
+}
+.hero-left {
+    flex: 1;
+    margin-left:5%;
+    font-family: 'Times New Roman', Times, serif;
+  }
+.hero-left p{
+    font-size: 20px;
+    color: black;
+    margin-top: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+  
+  .hero-right {
+    flex: 1;
+    text-align: center;
+    margin-right: 5%;
+    transform: translateY(-50px);
+  }
+.imgct{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+}
+.hero-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-55px);
+    flex-wrap: wrap;
+    /* margin-right: 20%; */
+}
+.hero-text p{
+    font-size: 19px;
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+}
+
+.hero-text h3{
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+
+.Profile{
+    background-color: aqua;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    height: 70vh;
+    width: 50vh;
+    border-radius: 10%;
+    background-color: burlywood;
+    position: static;
+    float:right;
+}
+.typing {
+    color: #FF0000;
+    font-size: 2.3em;
+    line-height: 2.8rem;;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #00ffcc;
+    width: 0;
+    animation: typing 1s  steps(20, end) forwards, blink 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 30ch; } /* Adjust this based on your text length */
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  /* TimeLine designing  */
+
+  .timeline-section {
+    background: whitesmoke;
+    padding: 60px 20px;
+    color: #333333;
+    font-family: 'Times New Roman', Times, serif;
+    width: 95%;
+    border-radius: 8px;
+  }
+  nav ul li a:hover{
+    border-bottom: 2px solid #6a00ff;
+}
+  
+  .timeline-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: black;
+    margin-bottom: 40px;
+  }
+  
+  .timeline {
+    position: relative;
+    margin-left: 20px;
+    border-left: 3px solid black;
+    padding-left: 20px;
+    height: 10%;
+  }
+  
+  .timeline-item {
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .timeline-dot {
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px;
+    top: 5px;
+  }
+  
+  .timeline-content h3 {
+    margin: 0;
+    color: black;
+    font-size: 1.7rem;
+  }
+  
+  .timeline-content p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .timesec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  /* footer styling */
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-family: sans-serif;
+    /* align-items: center; */
+}
+h3 a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1rem;
+}
+footer ul li{
+    display: inline-block;
+    
+}
+footer ul li a{
+    text-decoration: none;
+    color: black;
+   padding: 3px;
+
+}

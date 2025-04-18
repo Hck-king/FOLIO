@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{% static  "about.css"%}"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="name">
+                <h2> Pratikya Sehwag </h2>
+            </span>
+            <div class="navi">
+            <ul>
+              <li><a href="{% url "home"%}">Home</a></li>
+              <li><a href="{% url "about"%}">About</a></li>
+              <li><a href="{% url "service"%}">Services</a></li>
+              <li><a href="{% url "contact"%}">Contact</a></li>
+            </ul>
+        </div>
+        <div class="account-container">
+          <div class="account-icon" onclick="toggleDropdown()" id="accountIcon">
+              {% if user.is_authenticated %}
+              {{ user.email|first|upper }}
+              <div class="dropdown-menu" id="accountDropdown">
+                  <a href="{% url "login"%}">My Account</a>
+                  <a href="#">Logout</a>
+                </div>
+              </div>
+              </div>
+              {% else %}
+              <img src="{% static 'pi.png' %}" alt="Account" style="width: 30px; height: 30px;" />
+              <style>
+                  .account-icon {
+                      width: 50px;
+                      height: 50px;
+                      background-color: white;
+                      color: black;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-weight: bold;
+                      font-size: 18px;
+                      cursor: pointer;
+                      user-select: none;
+                    }
+              </style>
+              <div class="dropdown-menu" id="accountDropdown">
+                  <a href="{% url "login"%}">Login</a>
+                </div>
+              </div>
+              </div>
+              {% endif %}
+          </div>
+        </nav>
+        <section class="hero">
+                <div class="hero-left">
+                   <b> <h1 class="typing" >Passionate Innovator in AI and <br> Cybersecurity</h1>
+                    <p>
+                        I am an AI Engineer with a passion for creating intelligent<br> systems that solve real-world problems. 
+                        My expertise lies in <br>machine learning, deep learning, and natural language processing. <br>
+                        I thrive on designing innovative solutions that enhance automation and decision-making. <br>
+                        With a strong foundation in data analysis and programming,<br> I aim to bridge the gap between technology and human needs. 
+                        <br>My goal is to make AI accessible and impactful for everyone.<br>I thrive on designing innovative solutions that enhance automation and decision-making. <br>
+                        With a strong foundation in data analysis and programming,<br> I aim to bridge the gap between technology and human needs. 
+                        <br>My goal is to make AI accessible and impactful for everyone.
+                    </p>
+                </div>
+                <div class="hero-right">
+                <img src="{% static "a1.png"%}" alt="Profile Picture" class="Profile">
+                </div>
+                    
+                </section>
+            </header>
+                 <div class="timesec">
+                <section class="timeline-section">
+                    <h2>My Journey</h2>
+                  
+                    <div class="timeline">
+                  
+                      <!-- Education -->
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                          <h3>🎓 Education</h3>
+                          <p><strong>B.Tech in Computer Science</strong><br>AKTU University (2023 - Present)</p>
+                          <p><strong>12th Grade (CBSE)</strong><br>Sarvodaya Vidyalaya K-2, Delhi — 86%</p>
+                          <p><strong>10th Grade (CBSE)</strong><br>Prince Public School, Delhi — 86%</p>
+                        </div>
+                      </div>
+                  
+                      <!-- Skills -->
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                          <h3>💡 Skills</h3>
+                          <p>Python, Django, HTML, CSS, JavaScript, MySQL, Pandas, Machine Learning, Cybersecurity</p>
+                        </div>
+                      </div>
+                  
+                      <!-- Experience -->
+                      <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                          <h3>💼 Experience</h3>
+                          <p><strong>Personal Projects:</strong> Donation Website, AI Voice Assistant, Malware Detection Tool</p>
+                          <p><strong>Founder:</strong> Codex Security++ — Vision to launch cybersecurity tools & AI systems</p>
+                        </div>
+                      </div>
+                  
+                    </div>
+                    <br><br><br>
+    
+                  </section>
+
+                </div>
+                <hr>
+                    <footer>
+                        <h3><a href="#">Email-Id</a></h3>
+                        <h3><a href="#">Let's Connect</a></h3>
+                        <ul>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                          </ul>
+                          
+                    </footer>
+
+                <script>
+                    function toggleDropdown() {
+                      const dropdown = document.getElementById("accountDropdown");
+                      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+                    }
+                  
+                    // Hide dropdown when clicking outside
+                    window.onclick = function(event) {
+                      if (!event.target.closest('.account-container')) {
+                        document.getElementById("accountDropdown").style.display = "none";
+                      }
+                    };
+                  </script>
+                  
+</body>
+</html>
