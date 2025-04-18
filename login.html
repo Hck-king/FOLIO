@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="{% static "login.css"%}"> <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+    <nav>
+        <span class="name">
+            <h2> Pratikya Sehwag </h2>
+        </span>
+        <div class="navi">
+        <ul>
+          <li><a href="{% url "home"%}">Home</a></li>
+          <li><a href="{% url "about"%}">About</a></li>
+          <li><a href="{% url "service"%}">Services</a></li>
+          <li><a href="{% url "contact"%}">Contact</a></li>
+        </ul>
+    </div>
+        <div class="account-container">
+            <div class="account-icon" onclick="toggleDropdown()"><img src="{% static "pi.png"%}" height="30px",width="30px"></div>
+            <div class="dropdown-menu" id="accountDropdown">
+              <a href="{% url "login"%}">My Account</a>
+              <a href="#">Logout</a>
+            </div>
+          </div>
+    </nav>
+    </header>
+
+<div class="container">
+  <div class="login-box">
+    <div class="form-side">
+      <h2>Login</h2>
+      <p>Doesn’t have an account yet? <a href="#">Sign Up</a></p>
+
+      <input type="email" placeholder="Email Address">
+      <input type="password" placeholder="Enter 6 character or more">
+
+      <div class="extra-options">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button type="submit">LOGIN</button>
+
+      <div class="or">or login with</div>
+
+      <div class="social-login" id="googleLoginBtn">
+        <button>🔴 Google</button>
+        <button>🔵 Facebook</button>
+      </div>
+    </div>
+
+    <div class="image-side"></div>
+  </div>
+</div>
+<hr>
+<footer>
+    <h3><a href="#">Email-Id</a></h3>
+    <h3><a href="#">Let's Connect</a></h3>
+    <ul>
+        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+      </ul>
+      
+</footer>
+<script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("accountDropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+  
+    // Hide dropdown when clicking outside
+    window.onclick = function(event) {
+      if (!event.target.closest('.account-container')) {
+        document.getElementById("accountDropdown").style.display = "none";
+      }
+    };
+
+    document.getElementById("googleLoginBtn").addEventListener("click", function() {
+      window.location.href = "{% url 'social:begin' 'google-oauth2' %}?next={{ request.GET.next|default:'/home/' }}";
+    });
+  </script>
+</body>
+</html>
