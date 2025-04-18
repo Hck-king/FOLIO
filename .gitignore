@@ -1,7 +1,0 @@
-# Ignore environment variable file
-.env
-
-# Ignore other files and directories
-*.pyc
-__pycache__/
-db.sqlite3
