@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="{% static "contact.css"%}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span class="name">
+                <h2> Pratikya Sehwag </h2>
+            </span>
+            <div class="navi">
+            <ul>
+              <li><a href="{% url "home"%}">Home</a></li>
+              <li><a href="{% url "about"%}">About</a></li>
+              <li><a href="{% url "service"%}">Services</a></li>
+              <li><a href="{% url "contact"%}">Contact</a></li>
+            </ul>
+        </div>
+        <div class="account-container">
+          <div class="account-icon" onclick="toggleDropdown()" id="accountIcon">
+              {% if user.is_authenticated %}
+              {{ user.email|first|upper }}
+              <div class="dropdown-menu" id="accountDropdown">
+                  <a href="{% url "login"%}">My Account</a>
+                  <a href="#">Logout</a>
+                </div>
+              </div>
+              </div>
+              {% else %}
+              <img src="{% static 'pi.png' %}" alt="Account" style="width: 30px; height: 30px;" />
+              <style>
+                  .account-icon {
+                      width: 50px;
+                      height: 50px;
+                      background-color: white;
+                      color: black;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-weight: bold;
+                      font-size: 18px;
+                      cursor: pointer;
+                      user-select: none;
+                    }
+              </style>
+              <div class="dropdown-menu" id="accountDropdown">
+                  <a href="{% url "login"%}">Login</a>
+                </div>
+              </div>
+              </div>
+              {% endif %}
+          </div>
+        </nav>
+
+<div class="container">
+  <!-- Contact Form -->
+  <div class="contact-form">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+<br><hr>
+  <!-- Contact Info + Map -->
+  <div class="contact-info">
+    <h2>Get in Touch</h2>
+    <p><strong>Phone:</strong> +91-9876543210</p>
+    <p><strong>Email:</strong> contact@example.com</p>
+
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019032879814!2d144.96305831584986!3d-37.81621867975186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577c51a7f8f3e15!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1611708264543!5m2!1sen!2sau"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+</header>
+<br><br><br>
+<hr>
+<footer>
+    <h3><a href="#">Email-Id</a></h3>
+    <h3><a href="#">Let's Connect</a></h3>
+    <ul>
+        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+      </ul>
+      
+</footer>
+
+<script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("accountDropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+  
+    // Hide dropdown when clicking outside
+    window.onclick = function(event) {
+      if (!event.target.closest('.account-container')) {
+        document.getElementById("accountDropdown").style.display = "none";
+      }
+    };
+  </script>
+
+</body>
+</html>
