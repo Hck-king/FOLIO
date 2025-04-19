@@ -68,10 +68,15 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                
+                # Add these 2 lines below 👇
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = "Myproject.wsgi.application"
 AUTHENTICATION_BACKENDS = (
