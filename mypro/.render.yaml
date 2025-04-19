@@ -3,11 +3,9 @@ services:
     name: folio-11
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn Myproject.wsgi:application
+    startCommand: |
+      python manage.py migrate --verbosity 3 && gunicorn Myproject.wsgi:application
     autoDeploy: true
     envVars:
       - fromGroup: folio-env
     plan: free
-    preDeployCommand: |
-      python manage.py showmigrations
-      python manage.py migrate --verbosity 3
