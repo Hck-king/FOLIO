@@ -8,4 +8,6 @@ services:
     envVars:
       - fromGroup: folio-env
     plan: free
-    preDeployCommand: python manage.py migrate
+    preDeployCommand: |
+      python manage.py showmigrations
+      python manage.py migrate --verbosity 3
