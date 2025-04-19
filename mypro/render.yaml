@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: folio-11
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn Myproject.wsgi:application
+    autoDeploy: true
+    envVars:
+      - fromGroup: folio-env
+    plan: free
+    preDeployCommand: python manage.py migrate
